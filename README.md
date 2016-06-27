@@ -5,7 +5,7 @@ On clicking the scorecard of an ongoing match, you can also read the commentary.
 ## Application setup:
 First, you need to clone this repository using:
 ```
-git clone https://github.com/mayank-ism/cricketUpdate.git
+git clone https://github.com/mayank-ism/cricUpdate-angular.git
 ```
 on your terminal. Alternatively, you can also download the source code in the zip format and then unzip it.
 
