@@ -1,0 +1,85 @@
+#box {
+	padding-left: 20px;
+	overflow-y: scroll;
+  height: 500px;
+}
+
+#score-box {
+	overflow-y: scroll;
+	height: 500px;
+}
+
+.card {
+	padding: 2px;
+}
+
+.ongoing {
+  background-color: rgba(0, 128, 0, 0.11);
+  cursor: pointer;
+}
+
+.upcoming {
+  background-color: lightyellow;
+}
+
+.ongoing:hover {
+  background-color: rgba(0, 128, 0, 0.22);
+}
+
+.upcoming:hover {
+  background-color: rgba(255, 235, 59, 0.5);
+}
+
+.hide {
+	display: none;
+}
+
+.glyphicon-refresh-animate {
+  -animation: spin .7s infinite linear;
+  -ms-animation: spin .7s infinite linear;
+  -webkit-animation: spinw .7s infinite linear;
+  -moz-animation: spinm .7s infinite linear;
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
+}
+
+@-webkit-keyframes spinw {
+  from { -webkit-transform: rotate(0deg);}
+  to { -webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes spinm {
+  from { -moz-transform: rotate(0deg);}
+  to { -moz-transform: rotate(360deg);}
+}
+
+/*Style declaration for commentary.*/
+.commsImportant, .commentary-overs {
+  font-weight: bold;
+}
+
+.commentary-text p {
+  font-size: 12px;
+}
+
+.end-of-over-info {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.eov-stat-batsmen, .end-of-over-batsmen {
+  color: rgba(0, 121, 255, 0.61);
+  font-weight: normal;
+}
+
+.eov-stat-bowlers, .end-of-over-bowlers {
+  color: rgb(255, 145, 0);
+  font-weight: normal;
+}
+
+.large-10, .medium-10, .column {
+  font-size: inherit;
+}
