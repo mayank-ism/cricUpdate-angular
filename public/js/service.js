@@ -5,7 +5,6 @@ var match = 'match/';
 var commentary = 'commentary/';
 
 cricUpdate.directive('resize', function($window) {
-  console.log("In directive");
   return {
     restrict: 'A',
     link: function (scope, elem, attrs) {
