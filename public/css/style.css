@@ -1,16 +1,14 @@
 #box {
-	padding-left: 20px;
-	overflow-y: scroll;
-  height: 500px;
+  padding-left: 20px;
+  overflow-y: scroll;
 }
 
 #score-box {
-	overflow-y: scroll;
-	height: 500px;
+  overflow-y: scroll;
 }
 
 .card {
-	padding: 2px;
+  padding: 2px;
 }
 
 .ongoing {
