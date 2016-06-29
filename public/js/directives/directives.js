@@ -10,4 +10,3 @@ cricUpdateDirectives.directive('resize', function($window) {
     }
   };
 });
-
