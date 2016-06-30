@@ -119,7 +119,6 @@ cricUpdateServices.factory('CricketCommentaryService', function($http,$q) {
   var commentaryHTML = "";
   
   var getCommentary = function(id) {
-    var url = localhost+match+commentary+id;
     $http.get(localhost+match+commentary+id)
       .then(function successCallback(response) {
         commentaryHTML = response.data.commentary;
