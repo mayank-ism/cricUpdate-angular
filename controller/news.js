@@ -19,17 +19,21 @@ var router = express.Router();
 
 router.get('/', function(req, res) {
   var request_url = config.api_url + "cricketNews";
-  logger.info("Calling " + request_url);
-  request(request_url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      logger.info("SUCCESS: Got response from " + request_url);
-      logger.debug("Response: " + body);
-      res.send(body);
-    } else {
-      logger.error("Request failed for " + request_url);
-      logger.error("Error: " + error + " Response Status: " + response.statusCode);
-    }
-  });	
+  if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+    logger.info("Calling " + request_url);
+    request(request_url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        logger.info("SUCCESS: Got response from " + request_url);
+        logger.debug("Response: " + body);
+        res.send(body);
+      } else {
+        logger.error("Request failed for " + request_url);
+        logger.error("Error: " + error + " Response Status: " + response.statusCode);
+      }
+    });
+  } else {
+    res.redirect('/');
+  }
 });
 
 module.exports = router;
