@@ -17,47 +17,60 @@ var router = express.Router();
 
 router.get('/',function(req, res) {
   var request_url = config.api_url + "cricket";
-  logger.info("Calling " + request_url);
-  request(request_url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      logger.info("SUCCESS: Got response from " + request_url);
-      logger.debug("Response: " + body);
-      res.send(body);
-    } else {
-      logger.error("Request failed for " + request_url);
-      logger.error("Error: " + error + " Response Status: " + response.statusCode);
-    }
-  });
+  
+  if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+    logger.info("Calling " + request_url);
+    request(request_url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        logger.info("SUCCESS: Got response from " + request_url);
+        logger.debug("Response: " + body);
+        res.send(body);
+      } else {
+        logger.error("Request failed for " + request_url);
+        logger.error("Error: " + error + " Response Status: " + response.statusCode);
+      }
+    });
+  } else {
+    res.redirect('/');
+  }
 });
 
 router.get('/:id', function(req, res) {
   var request_url = config.api_url + "cricketScore?unique_id=" + req.params.id;
-  logger.info("Calling " + request_url);
-  request(request_url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      logger.info("SUCCESS: Got response from " + request_url);
-      logger.debug("Response: " + body);
-      res.send(body);
-    } else {
-      logger.error("Request failed for " + request_url);
-      logger.error("Error: " + error + " Response Status: " + response.statusCode);
-    }
-  });	
+  if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+    logger.info("Calling " + request_url);
+    request(request_url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        logger.info("SUCCESS: Got response from " + request_url);
+        logger.debug("Response: " + body);
+        res.send(body);
+      } else {
+        logger.error("Request failed for " + request_url);
+        logger.error("Error: " + error + " Response Status: " + response.statusCode);
+      }
+    });
+  } else {
+    res.redirect('/');
+  }
 });
 
 router.get('/commentary/:id', function(req, res) {
   var request_url = config.api_url + "cricketCommentary?unique_id=" + req.params.id;
-  logger.info("Calling " + request_url);
-  request(request_url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      logger.info("SUCCESS: Got response from " + request_url);
-      logger.debug("Response: " + body);
-      res.send(body); 
-    } else {
-      logger.error("Request failed for " + request_url);
-      logger.error("Error: " + error + " Response Status: " + response.statusCode);
-    }
-  });	
+  if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+    logger.info("Calling " + request_url);
+    request(request_url, function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        logger.info("SUCCESS: Got response from " + request_url);
+        logger.debug("Response: " + body);
+        res.send(body);
+      } else {
+        logger.error("Request failed for " + request_url);
+        logger.error("Error: " + error + " Response Status: " + response.statusCode);
+      }
+    });
+  } else {
+    res.redirect('/');
+  }
 });
 
 module.exports = router;
