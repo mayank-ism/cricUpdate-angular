@@ -8,10 +8,10 @@ var commentary = 'commentary/';
 var cricUpdateServices = angular.module('cricUpdateServices', []);
 
 cricUpdateServices.factory('CricketNewsService', function ($http, $q) {
-  var deferred = $q.defer();
   var newsList = [];
 
   var getNewsList = function () {
+    var deferred = $q.defer();
     newsList.splice(0, newsList.length);
     $http.get(localhost + news)
       .then(function successCallback(response) {
@@ -38,8 +38,7 @@ cricUpdateServices.factory('CricketNewsService', function ($http, $q) {
 });
 
 cricUpdateServices.factory('CricketScoresService', function ($http, $q) {
-  var deferred = $q.defer(),
-    listFullMembersICC = ["Australia", "Bangladesh", "England", "India", "New Zealand",
+  var listFullMembersICC = ["Australia", "Bangladesh", "England", "India", "New Zealand",
                             "Pakistan", "South Africa", "Sri Lanka", "West Indies", "Zimbabwe"],
     scoreListOngoingMatchesDom = [],
     scoreListOngoingMatchesIntl = [],
@@ -54,6 +53,7 @@ cricUpdateServices.factory('CricketScoresService', function ($http, $q) {
   }
 
   var getScores = function () {
+    var deferred = $q.defer();
     scoreListOngoingMatchesDom.splice(0, scoreListOngoingMatchesDom.length);
     scoreListOngoingMatchesIntl.splice(0, scoreListOngoingMatchesIntl.length);
     scoreListUpcomingMatchesDom.splice(0, scoreListUpcomingMatchesDom.length);
@@ -127,10 +127,10 @@ cricUpdateServices.factory('CricketScoresService', function ($http, $q) {
 });
 
 cricUpdateServices.factory('CricketCommentaryService', function ($http, $q, $timeout) {
-  var deferred = $q.defer();
   var commentaryHTML = "";
 
   var getCommentary = function (id) {
+    var deferred = $q.defer();
     $http.get(localhost + match + commentary + id)
       .then(function successCallback(response) {
         commentaryHTML = response.data.commentary;
