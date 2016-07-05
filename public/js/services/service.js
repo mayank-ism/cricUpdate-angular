@@ -1,4 +1,4 @@
-var localhost = "http://127.0.0.1:8080/";
+var baseURL = "/";
 var news = "news/";
 var match = 'match/';
 var commentary = 'commentary/';
@@ -13,7 +13,7 @@ cricUpdateServices.factory('CricketNewsService', function ($http, $q) {
   var getNewsList = function () {
     var deferred = $q.defer();
     newsList.splice(0, newsList.length);
-    $http.get(localhost + news)
+    $http.get(baseURL + news)
       .then(function successCallback(response) {
         newsList = newsList.concat(response.data.data);
         deferred.resolve();
@@ -58,7 +58,7 @@ cricUpdateServices.factory('CricketScoresService', function ($http, $q) {
     scoreListOngoingMatchesIntl.splice(0, scoreListOngoingMatchesIntl.length);
     scoreListUpcomingMatchesDom.splice(0, scoreListUpcomingMatchesDom.length);
     scoreListUpcomingMatchesIntl.splice(0, scoreListUpcomingMatchesIntl.length);
-    $http.get(localhost + match)
+    $http.get(baseURL + match)
       .then(function successCallback(response) {
         var responseList = response.data.data;
         responseList.forEach(function (data) {
@@ -66,7 +66,7 @@ cricUpdateServices.factory('CricketScoresService', function ($http, $q) {
           scoreElement.unique_id = data.unique_id;
           scoreElement.title = data.title;
           scoreElement.title = scoreElement.title.replace('&amp;', '&');
-          $http.get(localhost + match + data.unique_id)
+          $http.get(baseURL + match + data.unique_id)
             .then(function successCallback(matchDetail) {
               matchDetail = matchDetail.data;
               scoreElement.team1 = matchDetail['team-1'];
@@ -131,7 +131,7 @@ cricUpdateServices.factory('CricketCommentaryService', function ($http, $q, $tim
 
   var getCommentary = function (id) {
     var deferred = $q.defer();
-    $http.get(localhost + match + commentary + id)
+    $http.get(baseURL + match + commentary + id)
       .then(function successCallback(response) {
         commentaryHTML = response.data.commentary;
         deferred.resolve();
