@@ -1,7 +1,8 @@
 /*global angular*/
 var cricUpdateControllers = angular.module('cricUpdateControllers', []);
 
-cricUpdateControllers.controller('newsController', function ($scope, $timeout, $rootScope, $interval, CricketNewsService, CricketCommentaryService) {
+cricUpdateControllers.controller('newsController', function ($scope, $rootScope, $interval, CricketNewsService,
+  CricketCommentaryService) {
   $scope.readyData = false;
   $scope.displayCommentary = false;
 
@@ -40,7 +41,7 @@ cricUpdateControllers.controller('newsController', function ($scope, $timeout, $
   });
 });
 
-cricUpdateControllers.controller('scoresController', function ($scope, $interval, $timeout, $attrs, $rootScope, CricketScoresService) {
+cricUpdateControllers.controller('scoresController', function ($scope, $interval, $attrs, $rootScope, CricketScoresService) {
   $scope.readyData = false;
 
   $scope.getCommentary = function () {
@@ -49,7 +50,7 @@ cricUpdateControllers.controller('scoresController', function ($scope, $interval
   };
 
   function renderScore() {
-    $scope.readyData = false;    
+    $scope.readyData = false;
     CricketScoresService.getScores()
       .then(function () {
         var scoreData = CricketScoresService.scoreData();
