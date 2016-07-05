@@ -27,3 +27,5 @@ npm start
 on your terminal. The application has started.
 
 Visit http://127.0.0.1:8080/ to stay updated with the world of cricket!
+
+Live on: http://ec2-52-33-62-61.us-west-2.compute.amazonaws.com:8080/ 
